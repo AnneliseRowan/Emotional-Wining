@@ -1,4 +1,7 @@
-
+//for the parallax background image
+$(document).ready(function(){
+  $('.parallax').parallax();
+});
 
 //for the drop down menu
 $(document).ready(function(){
