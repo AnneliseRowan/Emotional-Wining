@@ -72,12 +72,13 @@
   <div class="row">
     <a class="waves-effect waves-light btn modal-trigger col s6 offset-s3" href="#modal1">Copy</a>
     <div id="modal1" class="modal">
-      <div class="modal-content">
+      <div class="modal-content" id="full-information">
         <h4 id="recipe-title">Recipe</h4>
-        <p id="recipe-text">A bunch of text</p>
+        <input type="text" id="recipe-text" value="A bunch of text">
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        <input class="waves-effect waves-teal btn-flat" type="button" id="copy-btn" value="copy">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">X</a>
       </div>
     </div>
 
