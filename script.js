@@ -1,7 +1,14 @@
-//for the parallax background image
-$(document).ready(function(){
-  $('.parallax').parallax();
+//for the carousel background images
+$('.carousel.carousel-slider').carousel({
+  fullWidth: true,
+  indicators: true
 });
+autoplay();
+function autoplay()
+ {
+   $(".carousel").carousel("next"); 
+   setTimeout(autoplay, 3000); 
+ }
 
 //for the drop down menu
 $(document).ready(function(){
@@ -30,7 +37,7 @@ $(function()  {
 $(document).ready(function(){
   $('select').formSelect();
 });
-
+/*
 const settings = {
   "async": false,
   "crossDomain": true,
@@ -99,16 +106,9 @@ $.ajax(settings).done(function (response) {
 
       $('#instructions').text(response.drinks[0].strInstructions);
 
-        
-     
-      
-
-
-    
-      
-          
-  
 });
+*/
+
     
   
 
