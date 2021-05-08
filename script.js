@@ -31,10 +31,22 @@ $(document).ready(function(){
   $('select').formSelect();
 });
 var selected = '';
+var chosenDrink ='';
 const settingsFilter = {
 	"async": false,
 	"crossDomain": true,
 	"url": "https://the-cocktail-db.p.rapidapi.com/filter.php?i="+selected,
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "2b1c64edc5msh3cacde3352fe1ebp1fec04jsn6c0584396bd0",
+		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
+	}
+};
+
+const settingsSingleDrink = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://the-cocktail-db.p.rapidapi.com/lookup.php?i="+chosenDrink,
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "2b1c64edc5msh3cacde3352fe1ebp1fec04jsn6c0584396bd0",
@@ -54,16 +66,16 @@ $('#wine').change(function(){
     console.log(response);
     console.log('1 deeper', response.drinks)
     console.log('deeper length', response.drinks.length)
-    chosenDrink = response.drinks[Math.floor((Math.random() * response.drinks.length) + 0)]);
+    chosenDrink = response.drinks[Math.floor((Math.random() * response.drinks.length) + 0)];
     console.log(chosenDrink);
     var drinkID = chosenDrink.idDrink;
-    console.log(drinkID);
+    console.log('drink ID', drinkID);
   });
 
 
 
-  // $.ajax(settingsSingleDrink).done(function (response) {
-  // console.log(response);
+  $.ajax(settingsSingleDrink).done(function (response) {
+  console.log(response);
   // console.log(`drinks??`, response.drinks)
   // console.log(`drink name???`, response.drinks[0].strDrink)
   // drinkName = response.drinks[0].strDrink
@@ -119,6 +131,6 @@ $('#wine').change(function(){
   
   //       $('#instructions').text(response.drinks[0].strInstructions);
   });
-  //  })
+   })
 
 
