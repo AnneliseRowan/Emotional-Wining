@@ -1,8 +1,14 @@
 //for the carousel background images
 $('.carousel.carousel-slider').carousel({
   fullWidth: true,
+  indicators: true
 });
-
+autoplay();
+function autoplay()
+ {
+   $(".carousel").carousel("next"); 
+   setTimeout(autoplay, 3000); 
+ }
 
 //for the drop down menu
 $(document).ready(function(){
