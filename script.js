@@ -1,7 +1,19 @@
-//for the parallax background image
+//for the carousel background image
 $(document).ready(function(){
-  $('.parallax').parallax();
+  $('.carousel').carousel({
+    fullWidth: true,
+    indicators: true
+  });
+  
+  autoplay(); 
+
+  function autoplay(){
+    $(".carousel").carousel("next");
+    setTimeout(autoplay, 2500); 
+  }
+
 });
+
 
 //for the drop down menu
 $(document).ready(function(){
