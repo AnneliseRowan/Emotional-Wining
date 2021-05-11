@@ -65,7 +65,7 @@ $('#wine').change(function(){
     console.log('1 deeper', response.drinks)
     console.log('deeper length', response.drinks.length)
     chosenDrink = response.drinks[Math.floor((Math.random() * response.drinks.length) + 0)];
-    console.log(chosenDrink);
+    console.log('I am chosendDrink',chosenDrink);
     var drinkID = chosenDrink.idDrink;
     console.log('drink ID', drinkID);
     
@@ -143,7 +143,48 @@ $('#wine').change(function(){
       console.log('window ', window)
       fetchTranslation(translationText)
       // call the other api to translate and then put it on the dom
-      
+   storeSearch();   
 });
 });
 })
+
+
+
+
+
+function previousSearch() {   
+  console.log('did previous serach go??'); 
+  drinkSearch = JSON.parse(localStorage.getItem('drinkSearch'));
+  $('button').remove('.historyBtn');
+  for (let i = 0; i < drinkSearch.length; i++) {
+      $('#full-information').after($('<button/>', {
+          text: drinkSearch[i].drinkName,
+          class: 'historyBtn',
+          id: i,            
+      }))}}
+
+      function storeSearch() {
+        searchHisotry = JSON.parse(localStorage.getItem('drinkSearch'));
+        if (searchHisotry === null) {
+            search = [{
+                drinkName: drinkName,
+                drinkID: drinkID,
+            }]
+        } else {
+            search = searchHisotry.concat([{
+              drinkName: drinkName,
+              drinkID: drinkID,
+            }])
+            }
+         localStorage.setItem('drinkSearch', JSON.stringify(search));   
+    }
+
+$('#oldBtn').on('click', function(){
+  previousSearch();
+});
+
+
+$("#language").on('change', function () {
+    languageChoice = $(this).find('option:selected').attr('id');
+    console.log('chosen language', languageChoice)
+});
