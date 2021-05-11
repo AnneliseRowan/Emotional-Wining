@@ -17,7 +17,7 @@
         },
         "data": {
             "text": translationText,
-            "tl": "es",
+            "tl": languageChoice,
             "q": translationText,
             "sl": "en"
         }
