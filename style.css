@@ -21,13 +21,20 @@ img {
     height: 300px; 
 }
 
-.card .card-title {
+#card-title,
+#card-title2 {
     font-size: 36px !important;
     text-decoration: underline; 
 }
 
-.card-description {
+#ingredients,
+#ingredients2 {
     font-size: 24px; 
+}
+
+#instructions,
+#translated-instructions {
+    font-size: 18px; 
 }
 
 footer {

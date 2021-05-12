@@ -4,7 +4,7 @@ $(document).ready(function(){
     fullWidth: true,
     indicators: true
   });
-  
+
   autoplay(); 
 
   function autoplay(){
@@ -27,14 +27,7 @@ $(document).ready(function(){
 });
 
 //to make the button on modal copy the test
-$(function()  {
-  $('#copy-btn').click(function(){
-      var content = $('#full-information').html();
-      var newdiv = $("<div>");
-      newdiv.html(content);
-      $('#full-information').after(newdiv);
-  });
-});
+
 
 
 
