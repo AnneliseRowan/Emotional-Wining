@@ -150,9 +150,6 @@ $('#wine').change(function(){
 })
 
 
-
-
-
 function previousSearch() {   
   console.log('did previous serach go??'); 
   drinkSearch = JSON.parse(localStorage.getItem('drinkSearch'));
@@ -179,10 +176,10 @@ function previousSearch() {
             }
          localStorage.setItem('drinkSearch', JSON.stringify(search));   
     }
-
-$('#oldBtn').on('click', function(){
+    $('#oldBtn').on('click', function(){
   previousSearch();
 });
+
 
 
 $("#language").on('change', function () {
@@ -272,3 +269,4 @@ function getOldRecipe() {
     }
   }
     })}
+
