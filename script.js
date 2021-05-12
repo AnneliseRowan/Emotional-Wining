@@ -11,7 +11,6 @@ $(document).ready(function(){
     $(".carousel").carousel("next");
     setTimeout(autoplay, 2500); 
   }
-
 });
 
 
@@ -20,15 +19,10 @@ $(document).ready(function(){
   $('select').formSelect();
 });
 
-
 //for the modal
 $(document).ready(function(){
   $('.modal').modal();
 });
-
-//to make the button on modal copy the test
-
-
 
 
 //for the drop down menu
