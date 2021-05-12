@@ -141,15 +141,12 @@ $('#wine').change(function(){
   var translationText = response.drinks[0].strInstructions
       $('#instructions').text(translationText);
       console.log('window ', window)
-      fetchTranslation(translationText)
+      
       // call the other api to translate and then put it on the dom
    storeSearch();   
 });
 });
 })
-
-
-
 
 
 function previousSearch() {   
@@ -178,13 +175,10 @@ function previousSearch() {
             }
          localStorage.setItem('drinkSearch', JSON.stringify(search));   
     }
-
-$('#oldBtn').on('click', function(){
+    $('#oldBtn').on('click', function(){
   previousSearch();
 });
 
 
-$("#language").on('change', function () {
-    languageChoice = $(this).find('option:selected').attr('id');
-    console.log('chosen language', languageChoice)
-});
+
+

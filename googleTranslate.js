@@ -3,8 +3,8 @@
     // 	console.log(response);
     // });
     
-    function fetchTranslation(translationText){
-        console.log('translation text???? ', translationText)
+function fetchTranslation(translationText){
+
     const settingsGoogleTranslate = {
         "async": true,
         "crossDomain": true,
@@ -24,11 +24,17 @@
     };
     $.ajax(settingsGoogleTranslate).done(function (response) {
           
-        console.log('translation!!!!!~ ', response);
+        
+        console.log("TRANSLATE: ", translationText)
         var translatedText = response.data.translation;
-            
         // var translatedInstructions = $("#instructions").text(translatedText);
-        $("#translated-instructions").replaceWith(translatedText)
+        $("#translated-instructions").append(translatedText)
         
     });
 }
+
+$("#language").on('change', function () {
+    languageChoice = $(this).find('option:selected').attr('id');
+    var translationText = $("#instructions").text()
+    fetchTranslation(translationText)
+});
