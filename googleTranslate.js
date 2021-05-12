@@ -28,7 +28,7 @@
         var translatedText = response.data.translation;
             
         // var translatedInstructions = $("#instructions").text(translatedText);
-        $("#translated-instructions").replaceWith(translatedText)
+        $("#translated-instructions").append(translatedText)
         
     });
 }
