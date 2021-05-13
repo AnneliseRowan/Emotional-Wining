@@ -5,7 +5,7 @@
 }
 
 img {
-    height: 700px; 
+    height: 700px !important; 
 }
 
 #logo {
@@ -35,6 +35,15 @@ img {
 #instructions,
 #translated-instructions {
     font-size: 18px; 
+}
+
+#recipe-title {
+    text-decoration: underline;
+}
+
+.historyBtn {
+    margin: 5px; 
+
 }
 
 footer {
