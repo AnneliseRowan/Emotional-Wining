@@ -144,7 +144,7 @@ function previousSearch() {
   for (let i = 0; i < drinkSearch.length; i++) {
       $('#full-information').after($('<button/>', {
           text: drinkSearch[i].drinkName,
-          class: 'historyBtn',
+          class: 'historyBtn waves-effect waves-light btn-small',
           id: i,            
       }))}}
 
@@ -255,5 +255,5 @@ function getOldRecipe() {
       $('#ingredients').append("<li>"+ temp2 + "</li>");
     }
   }
-    })}
+})}
 
