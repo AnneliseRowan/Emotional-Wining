@@ -42,19 +42,19 @@ const settingsFilter = {
 	}
 };
 
+// This is the event listener for when an emotion is chosen from the dropdown menu
+// It'll ping the api and get 10 drink recipes, and then randomly chose of those 1 to 
+// present.
 
 $('#wine').change(function(){
   selected = $(".wine option:selected").text();
   $('#ingredients').empty();
-  console.log(`poison   `+ selected);
   $.ajax(settingsFilter).done(function (response) {
     console.log(response);
     console.log('1 deeper', response.drinks)
     console.log('deeper length', response.drinks.length)
     chosenDrink = response.drinks[Math.floor((Math.random() * response.drinks.length) + 0)];
-    console.log('I am chosendDrink',chosenDrink);
     drinkID = chosenDrink.idDrink;
-    console.log('drink ID', drinkID);
     
 
     const settingsSingleDrink = {
@@ -69,13 +69,11 @@ $('#wine').change(function(){
     };
     
     $.ajax(settingsSingleDrink).done(function (response) {
-  console.log(response);
   
   console.log(`drinks??`, response.drinks)
   console.log(`drink name???`, response.drinks[0].strDrink)
   drinkName = response.drinks[0].strDrink
   $('#card-title').text(drinkName);
-  //$('#card-title2').text(drinkName);
       
   ingredients = [
     response.drinks[0].strIngredient1,
@@ -111,24 +109,19 @@ $('#wine').change(function(){
     response.drinks[0].strMeasure14,
     response.drinks[0].strMeasure15,
   ]
-  console.log(ingredients);
-  console.log(measurements);
   
   for (let i = 0; i < ingredients.length; i++) {
     if (ingredients[i] !== null && measurements[i] !==null) {
       temp = ingredients[i] + ' ' + measurements[i];
       $('#ingredients').append("<li>"+ temp + "</li>");
-      console.log(`did this go??`);
     } else if (ingredients[i] !== null && measurements[i] ==null) {
-      temp2 = ingredients[i]
-      
+      temp2 = ingredients[i]      
       $('#ingredients').append("<li>"+ temp2 + "</li>");
     }
   }
       
   var translationText = response.drinks[0].strInstructions
       $('#instructions').text(translationText);
-      console.log('window ', window)
 
       // call the other api to translate and then put it on the dom
    storeSearch();   
@@ -136,9 +129,9 @@ $('#wine').change(function(){
 });
 })
 
-
-function previousSearch() {   
-  console.log('did previous serach go??'); 
+// previousSearch will pull the drinkSearch from local storage. It'll pull out the drinks
+// each button is assigned with an id=i, which makes it easy to pull the thing.
+function previousSearch() {
   drinkSearch = JSON.parse(localStorage.getItem('drinkSearch'));
   $('button').remove('.historyBtn');
   for (let i = 0; i < drinkSearch.length; i++) {
@@ -147,7 +140,8 @@ function previousSearch() {
           class: 'historyBtn',
           id: i,            
       }))}}
-
+// the storeSearch function will automatically save the drink name and drink ID of each drink
+// that was pulled by the system. The data is stored in the local data.
       function storeSearch() {
         searchHisotry = JSON.parse(localStorage.getItem('drinkSearch'));
         if (searchHisotry === null) {
@@ -168,20 +162,20 @@ function previousSearch() {
 });
 
 
-
+// This is the event listener, that pulls out the id from the input element the user switches to
+// the id of each element is the parameter that will be sent to the api.
 $("#language").on('change', function () {
     languageChoice = $(this).find('option:selected').attr('id');
-    console.log('chosen language', languageChoice)
 });
-
+// This is the event listener for the dynamically generated buttons created by previously pulled
+// drinks by the app.
 $(document).on('click', '.historyBtn', function(){
   searchHisotry = JSON.parse(localStorage.getItem('drinkSearch'));
   chosenDrink = drinkSearch[this.id].drinkID
-  console.log('serach history', searchHisotry)
-  console.log('chosen drink', chosenDrink);
   getOldRecipe();
 })
-
+// The getOlDRecipe function will remove the data currently in the drink card, before pulling in
+//the drink by using the id from the selected buttons.
 function getOldRecipe() {
     $('.titleCard').text('');
     $('.instructions').text('');
@@ -199,13 +193,9 @@ function getOldRecipe() {
     
     
     $.ajax(settingsSingleDrink).done(function (response) {
-  console.log(response);
-  
-  console.log(`drinks??`, response.drinks)
-  
+
   drinkName = response.drinks[0].strDrink
-  $('#card-title').text(drinkName);
- //$('#card-title2').text(drinkName);
+  $('#card-title').text(drinkName); 
       
   ingredients = [
     response.drinks[0].strIngredient1,
@@ -241,17 +231,15 @@ function getOldRecipe() {
     response.drinks[0].strMeasure14,
     response.drinks[0].strMeasure15,
   ]
-  console.log(ingredients);
-  console.log(measurements);
-  
+  // This will take the two arrays of the ingredients and measurements and add them together
+  // Not all ingredient will have a measurement we found during stress testing, so the if/else
+  // statements will check for those.
   for (let i = 0; i < ingredients.length; i++) {
     if (ingredients[i] !== null && measurements[i] !==null) {
       temp = ingredients[i] + ' ' + measurements[i];
       $('#ingredients').append("<li>"+ temp + "</li>");
-      console.log(`did this go??`);
     } else if (ingredients[i] !== null && measurements[i] ==null) {
-      temp2 = ingredients[i]
-      
+      temp2 = ingredients[i]      
       $('#ingredients').append("<li>"+ temp2 + "</li>");
     }
   }
