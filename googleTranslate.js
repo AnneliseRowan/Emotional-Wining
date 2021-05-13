@@ -94,6 +94,9 @@ function fetchNameTranslation(translationTitle){
 }
 
 $("#language").on('change', function () {
+    $('#card-title2').text('');
+    $('#translated-instructions').text('');
+    $('#ingredients2').text('');
     languageChoice = $(this).find('option:selected').attr('id');
     var translationText = $("#instructions").text();
     var translationIngredients = $("#ingredients").text(); 
