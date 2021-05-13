@@ -137,7 +137,7 @@ function previousSearch() {
   for (let i = 0; i < drinkSearch.length; i++) {
       $('#full-information').after($('<button/>', {
           text: drinkSearch[i].drinkName,
-          class: 'historyBtn',
+          class: 'historyBtn waves-effect waves-light btn-small',
           id: i,            
       }))}}
 // the storeSearch function will automatically save the drink name and drink ID of each drink
@@ -243,5 +243,5 @@ function getOldRecipe() {
       $('#ingredients').append("<li>"+ temp2 + "</li>");
     }
   }
-    })}
+})}
 
