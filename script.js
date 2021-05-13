@@ -11,7 +11,6 @@ $(document).ready(function(){
     $(".carousel").carousel("next");
     setTimeout(autoplay, 2500); 
   }
-
 });
 
 
@@ -20,15 +19,10 @@ $(document).ready(function(){
   $('select').formSelect();
 });
 
-
 //for the modal
 $(document).ready(function(){
   $('.modal').modal();
 });
-
-//to make the button on modal copy the test
-
-
 
 
 //for the drop down menu
@@ -81,7 +75,7 @@ $('#wine').change(function(){
   console.log(`drink name???`, response.drinks[0].strDrink)
   drinkName = response.drinks[0].strDrink
   $('#card-title').text(drinkName);
-  $('#card-title2').text(drinkName);
+  //$('#card-title2').text(drinkName);
       
   ingredients = [
     response.drinks[0].strIngredient1,
@@ -211,7 +205,7 @@ function getOldRecipe() {
   
   drinkName = response.drinks[0].strDrink
   $('#card-title').text(drinkName);
-  $('#card-title2').text(drinkName);
+ //$('#card-title2').text(drinkName);
       
   ingredients = [
     response.drinks[0].strIngredient1,
