@@ -50,9 +50,6 @@ $('#wine').change(function(){
   selected = $(".wine option:selected").text();
   $('#ingredients').empty();
   $.ajax(settingsFilter).done(function (response) {
-    console.log(response);
-    console.log('1 deeper', response.drinks)
-    console.log('deeper length', response.drinks.length)
     chosenDrink = response.drinks[Math.floor((Math.random() * response.drinks.length) + 0)];
     drinkID = chosenDrink.idDrink;
     
@@ -69,9 +66,6 @@ $('#wine').change(function(){
     };
     
     $.ajax(settingsSingleDrink).done(function (response) {
-  
-  console.log(`drinks??`, response.drinks)
-  console.log(`drink name???`, response.drinks[0].strDrink)
   drinkName = response.drinks[0].strDrink
   $('#card-title').text(drinkName);
       
