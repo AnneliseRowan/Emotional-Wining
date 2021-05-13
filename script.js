@@ -75,7 +75,7 @@ $('#wine').change(function(){
   console.log(`drink name???`, response.drinks[0].strDrink)
   drinkName = response.drinks[0].strDrink
   $('#card-title').text(drinkName);
-  $('#card-title2').text(drinkName);
+  //$('#card-title2').text(drinkName);
       
   ingredients = [
     response.drinks[0].strIngredient1,
@@ -205,7 +205,7 @@ function getOldRecipe() {
   
   drinkName = response.drinks[0].strDrink
   $('#card-title').text(drinkName);
-  $('#card-title2').text(drinkName);
+ //$('#card-title2').text(drinkName);
       
   ingredients = [
     response.drinks[0].strIngredient1,
