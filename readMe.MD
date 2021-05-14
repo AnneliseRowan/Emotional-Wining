@@ -5,7 +5,7 @@ Welcome to the wonderful world of The Tailorist! Where you can come and express 
 If you need to tailor drink linguistically, then you can choose out of 5 languages to be able to share with your friends! 
 There is also a button to look at recent searches just in case you forget!
 
-Here is a link to the direct page: https://anneliserowan.github.io/the-tailorist/"
+Here is a link to the direct page: https://anneliserowan.github.io/the-tailorist/
 
 ##Demo
 
