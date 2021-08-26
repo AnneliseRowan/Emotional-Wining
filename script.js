@@ -37,7 +37,7 @@ const settingsFilter = {
 	"url": "https://the-cocktail-db.p.rapidapi.com/randomselection.php",
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-key": "2b1c64edc5msh3cacde3352fe1ebp1fec04jsn6c0584396bd0",
+		"x-rapidapi-key": "c14b1f59e5mshcf00389f4b5661bp1ab239jsn7cf0dbe5392b",
 		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
 	}
 };
@@ -60,7 +60,7 @@ $('#wine').change(function(){
       "url": "https://the-cocktail-db.p.rapidapi.com/lookup.php?i="+chosenDrink.idDrink,
       "method": "GET",
       "headers": {
-        "x-rapidapi-key": "2b1c64edc5msh3cacde3352fe1ebp1fec04jsn6c0584396bd0",
+        "x-rapidapi-key": "c14b1f59e5mshcf00389f4b5661bp1ab239jsn7cf0dbe5392b",
         "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
       }
     };
@@ -181,7 +181,7 @@ function getOldRecipe() {
       "url": "https://the-cocktail-db.p.rapidapi.com/lookup.php?i="+chosenDrink,
       "method": "GET",
       "headers": {
-        "x-rapidapi-key": "2b1c64edc5msh3cacde3352fe1ebp1fec04jsn6c0584396bd0",
+        "x-rapidapi-key": "c14b1f59e5mshcf00389f4b5661bp1ab239jsn7cf0dbe5392b",
         "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
       }}
     
